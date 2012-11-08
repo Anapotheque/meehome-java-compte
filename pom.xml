@@ -11,6 +11,13 @@
 	<url>http://code.google.com/p/meehome-java-compte/</url>
 	
 	<build>
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.11</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -37,14 +44,14 @@
 	
 	<repositories>
 		<repository>
-			<id>meehome-compte</id>
+			<id>meehome-java-compte.googlecode.com</id>
 			<url>http://meehome-java-compte.googlecode.com/svn/repository</url>
 		</repository>
 	</repositories>
 	
 	<distributionManagement>
 		<repository>
-			<id>meehome-compte</id>
+			<id>meehome-java-compte.googlecode.com</id>
 			<url>scp://meehome-java-compte.googlecode.com/svn/repository</url>
 		</repository>
 	</distributionManagement>
