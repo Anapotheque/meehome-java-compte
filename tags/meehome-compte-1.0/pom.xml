@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>fr.meehome.compte</groupId>
+	<artifactId>meehome-compte</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>Meehome Compte</name>
+	
+	<url>http://code.google.com/p/meehome-java-compte/</url>
+	
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.11</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<tagBase>https://meehome-java-compte.googlecode.com/svn/tags</tagBase>
+					<useReleaseProfile>false</useReleaseProfile>
+					<preparationGoals>clean install</preparationGoals>
+					<goals>deploy</goals>
+					<arguments>-Prelease</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<modules>
+		<module>template</module>
+	</modules>
+	
+	<scm>
+		<connection>scm:svn:https://meehome-java-compte.googlecode.com/svn/tags/meehome-compte-1.0</connection>
+	</scm>
+	
+	<repositories>
+		<repository>
+			<id>meehome-java-compte</id>
+			<url>http://meehome-java-compte.googlecode.com/svn/repository</url>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>meehome-java-compte</id>
+			<url>scp://meehome-java-compte.googlecode.com/svn/repository</url>
+		</repository>
+	</distributionManagement>
+	
+</project>
