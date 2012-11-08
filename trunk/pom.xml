@@ -38,6 +38,13 @@
 		<connection>scm:svn:https://meehome-java-compte.googlecode.com/svn/trunk</connection>
 	</scm>
 	
+	<repositories>
+		<repository>
+			<id>repo</id>
+			<url>http://la-petite-annonce.googlecode.com/svn/repository</url>
+		</repository>
+    </repositories>
+	
 	<distributionManagement>
 		<repository>
 			<id>repo</id>
