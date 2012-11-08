@@ -44,14 +44,14 @@
 	
 	<repositories>
 		<repository>
-			<id>meehome-java-compte.googlecode.com</id>
+			<id>meehome-java-compte</id>
 			<url>http://meehome-java-compte.googlecode.com/svn/repository</url>
 		</repository>
 	</repositories>
 	
 	<distributionManagement>
 		<repository>
-			<id>meehome-java-compte.googlecode.com</id>
+			<id>meehome-java-compte</id>
 			<url>scp://meehome-java-compte.googlecode.com/svn/repository</url>
 		</repository>
 	</distributionManagement>
