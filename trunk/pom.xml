@@ -24,10 +24,7 @@
 				<version>2.3.2</version>
 				<configuration>
 					<tagBase>https://meehome-java-compte.googlecode.com/svn/tags</tagBase>
-					<useReleaseProfile>false</useReleaseProfile>
-					<preparationGoals>clean install</preparationGoals>
 					<goals>deploy</goals>
-					<arguments>-Prelease</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
