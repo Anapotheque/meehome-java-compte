@@ -10,6 +10,9 @@ set JAVA_HOME=D:\dev\softs\5.0.1\apps\jdk\1.6.0-18
 @REM : M2_HOME : Permet de switch d'un maven 2.2.1 à un maven 3.0 par exemple
 set M2_HOME=D:\My\tools\apache-maven-3.0.4
 
+@REM : SVN_HOME : Configuration de svn
+set SVN_HOME=D:\jtb\softs\5.0.1\apps\svn-win32-1.6.6
+
 @REM : Configuration de maven en terme de proxy, repo distant tout ça ( à venir ) pour le moment ne mettez rien ça gene pas
 set GLOBAL_SETTINGS=D:\My\tools\conf\maven\global\settings.xml
 set USER_SETTINGS=D:\My\tools\conf\maven\users\settings.xml
@@ -25,7 +28,7 @@ set MAVEN_OPTS=-Duser.locale=fr %MAVEN_OPTS%
 set MAVEN_OPTS=-Dorg.apache.maven.global-settings=%GLOBAL_SETTINGS% %MAVEN_OPTS%
 set MAVEN_OPTS=-Dorg.apache.maven.user-settings=%USER_SETTINGS% %MAVEN_OPTS%
 
-set PATH=%JAVA_HOME%\bin;%M2_HOME%\bin;%PATH%
+set PATH=%JAVA_HOME%\bin;%M2_HOME%\bin;%SVN_HOME%\bin;%PATH%
 
 @echo on
 @echo --------------------------------------------------------------
