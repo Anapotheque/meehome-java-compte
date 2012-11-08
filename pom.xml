@@ -51,7 +51,7 @@
 	<distributionManagement>
 		<repository>
 			<id>meehome-java-compte</id>
-			<url>scp://meehome-java-compte.googlecode.com/svn/repository</url>
+			<url>${dist.url}/releases</url>
 		</repository>
 	</distributionManagement>
 	
