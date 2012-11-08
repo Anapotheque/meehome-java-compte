@@ -29,7 +29,7 @@ set PATH=%JAVA_HOME%\bin;%M2_HOME%\bin;%PATH%
 
 @echo on
 @echo --------------------------------------------------------------
-@echo -  CORPOCONCEPT - BOX                                        -
+@echo -  JTOOLBOX                                                  -
 @echo --------------------------------------------------------------
 @echo off
 cd %DIRECTORY%
