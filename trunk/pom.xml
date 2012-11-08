@@ -41,16 +41,9 @@
 		<connection>scm:svn:https://meehome-java-compte.googlecode.com/svn/trunk</connection>
 	</scm>
 	
-	<repositories>
-		<repository>
-			<id>meehome-java-compte</id>
-			<url>http://meehome-java-compte.googlecode.com/svn/repository</url>
-		</repository>
-	</repositories>
-	
 	<distributionManagement>
 		<repository>
-			<id>meehome-java-compte</id>
+			<id>repo</id>
 			<url>scp://meehome-java-compte.googlecode.com/svn/repository</url>
 		</repository>
 	</distributionManagement>
