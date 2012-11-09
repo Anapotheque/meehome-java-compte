@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.Hibernate;
+
 @Entity
 @Table(name = "TEMPLATE_USER")
 public class User {
@@ -28,21 +30,33 @@ public class User {
     private String prenom;
 
     @Override
-    public boolean equals(Object obj) {
-        boolean returnValue = false;
+    public boolean equals(final Object obj) {
         if (this == obj) {
-            returnValue = true;
-        } else if (obj == null) {
-            returnValue = false;
-        } else {
-            User user = (User ) obj;
-            if (id == null) {
-                if (other.id != null)
-                    return false;
-            } else if (!id.equals(other.id))
-                return false;
+            return true;
         }
-        return returnValue;
+        if (obj == null) {
+            return false;
+        }
+        if (Hibernate.getClass(this) != Hibernate.getClass(obj)) {
+            return false;
+        }
+        final User other = (User ) obj;
+        if (getLogin() == null) {
+            if (other.getLogin() != null) {
+                return false;
+            }
+        } else if (!getLogin().equals(other.getLogin())) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getLogin() == null) ? 0 : getLogin().hashCode());
+        return result;
     }
 
     public void setId(int id) {
