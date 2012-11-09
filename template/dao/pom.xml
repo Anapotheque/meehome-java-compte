@@ -59,7 +59,7 @@
 		
 		<dependency>
 	        <groupId>com.googlecode.genericdao</groupId>
-	        <artifactId>search-hibernate</artifactId>
+	        <artifactId>dao-hibernate</artifactId>
 	        <version>1.0.0</version>
 		</dependency>
 		
