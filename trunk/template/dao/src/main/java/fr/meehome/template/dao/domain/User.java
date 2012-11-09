@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TEMPLATE_USER")
-public class User  {
+public class User {
 
     @Id
     @GeneratedValue
@@ -20,12 +20,30 @@ public class User  {
 
     @Column(name = "TEMPLATE_USER_PASSWORD")
     private String password;
-    
+
     @Column(name = "TEMPLATE_USER_NOM")
     private String nom;
 
-	@Column(name = "TEMPLATE_USER_PRENOM")
+    @Column(name = "TEMPLATE_USER_PRENOM")
     private String prenom;
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean returnValue = false;
+        if (this == obj) {
+            returnValue = true;
+        } else if (obj == null) {
+            returnValue = false;
+        } else {
+            User user = (User ) obj;
+            if (id == null) {
+                if (other.id != null)
+                    return false;
+            } else if (!id.equals(other.id))
+                return false;
+        }
+        return returnValue;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -52,18 +70,18 @@ public class User  {
     }
 
     public String getNom() {
-		return nom;
-	}
+        return nom;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	public String getPrenom() {
-		return prenom;
-	}
+    public String getPrenom() {
+        return prenom;
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 }

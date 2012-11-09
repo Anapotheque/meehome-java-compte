@@ -30,9 +30,7 @@ public class UserDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
         user.setPrenom("prenom1");
         user.setLogin("login");
         user.setPassword("password");
-
         User userTest = userDao.searchById(1);
-
         Assert.assertTrue(user.equals(userTest));
     }
 
