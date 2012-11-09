@@ -1,15 +1,11 @@
 package fr.meehome.template.dao;
 
-import java.util.List;
+import com.googlecode.genericdao.dao.hibernate.GenericDAO;
 
 import fr.meehome.template.dao.domain.User;
 
-public interface IUserDao {
+public interface IUserDao extends GenericDAO<User, Long> {
 
-    public void saveUser(String login, String password);
-
-    public User getUser(String login, String password);
-
-    public List<User> getAllUser();
+    public User searchById(int id);
 
 }
