@@ -14,13 +14,13 @@ import fr.meehome.template.dao.domain.User;
 @Repository
 public class UserDao {
 
-    @Autowired
+	@Autowired
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
+	
     @SuppressWarnings("unchecked")
     public List<User> findAll() throws HibernateException {
         List<User> list = sessionFactory.getCurrentSession().createCriteria(User.class).list();
@@ -28,10 +28,10 @@ public class UserDao {
     }
 
     public void createPersonne(User user) throws HibernateException {
-        sessionFactory.getCurrentSession().persist("User", user);
+    	sessionFactory.getCurrentSession().persist("User", user);
     }
 
     public void removePersonne(User user) throws HibernateException {
-        sessionFactory.getCurrentSession().delete(user);
+    	sessionFactory.getCurrentSession().delete(user);
     }
 }
