@@ -52,9 +52,15 @@
 		</dependency>
 		
 		<dependency>
-		  <groupId>org.hibernate</groupId>
-		  <artifactId>hibernate-validator</artifactId>
-		  <version>3.1.0.GA</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>3.1.0.GA</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>com.googlecode.genericdao</groupId>
+	        <artifactId>search-hibernate</artifactId>
+	        <version>1.0.0</version>
 		</dependency>
 		
 		<dependency>
