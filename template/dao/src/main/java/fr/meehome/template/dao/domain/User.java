@@ -2,6 +2,8 @@ package fr.meehome.template.dao.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -28,6 +30,10 @@ public class User {
 
     @Column(name = "TEMPLATE_USER_PRENOM")
     private String prenom;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TEMPLATE_USER_ROLE")
+    private RoleEnum roleEnum;
 
     @Override
     public boolean equals(final Object obj) {
