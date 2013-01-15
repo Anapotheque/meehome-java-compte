@@ -1,13 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>fr.meehome.compte</groupId>
-	<artifactId>meehome-compte</artifactId>
+	<artifactId>meehome-java-compte</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Meehome Compte</name>
+	<name>meehome-java-compte</name>
 	
-	<url>http://code.google.com/p/meehome-java-compte/</url>
+	<modules>
+		<module>meehome-java-compte-dao</module>
+		<module>meehome-java-compte-services</module>
+		<module>meehome-java-compte-front</module>
+	</modules>
 	
 	<build>
 	
@@ -38,12 +43,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
 	</build>
-	
-	<modules>
-		<module>template</module>
-	</modules>
 	
 	<scm>
 		<connection>scm:svn:https://meehome-java-compte.googlecode.com/svn/trunk</connection>
