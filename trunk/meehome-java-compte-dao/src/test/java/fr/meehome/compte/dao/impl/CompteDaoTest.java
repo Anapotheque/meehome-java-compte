@@ -8,8 +8,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
 import fr.meehome.compte.dao.ICompteDao;
 import fr.meehome.compte.dao.domain.Compte;
@@ -18,6 +20,8 @@ import fr.meehome.user.dao.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/fr/meehome/compte/dao/applicationContext-test.xml" })
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DataSetTestExecutionListener.class })
+@DataSet(value = "compteDao.xml")
 public class CompteDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired
