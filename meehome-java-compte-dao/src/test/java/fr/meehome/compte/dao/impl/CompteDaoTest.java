@@ -13,10 +13,13 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
+import com.excilys.ebi.spring.dbunit.test.DataSet;
+import com.excilys.ebi.spring.dbunit.test.DataSetTestExecutionListener;
+
 import fr.meehome.compte.dao.ICompteDao;
+import fr.meehome.compte.dao.IUserDao;
 import fr.meehome.compte.dao.domain.Compte;
-import fr.meehome.user.dao.IUserDao;
-import fr.meehome.user.dao.domain.User;
+import fr.meehome.compte.dao.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/fr/meehome/compte/dao/applicationContext-test.xml" })
