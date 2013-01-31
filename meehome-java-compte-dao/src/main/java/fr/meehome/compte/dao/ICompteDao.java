@@ -5,7 +5,7 @@ import java.util.List;
 import com.googlecode.genericdao.dao.hibernate.GenericDAO;
 
 import fr.meehome.compte.dao.domain.Compte;
-import fr.meehome.user.dao.domain.User;
+import fr.meehome.compte.dao.domain.User;
 
 public interface ICompteDao extends GenericDAO<Compte, Long> {
 

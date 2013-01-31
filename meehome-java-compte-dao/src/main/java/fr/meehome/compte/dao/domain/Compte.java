@@ -10,8 +10,6 @@ import javax.persistence.Table;
 
 import org.hibernate.Hibernate;
 
-import fr.meehome.user.dao.domain.User;
-
 @Entity
 @Table(name = "COMPTES")
 public class Compte {
