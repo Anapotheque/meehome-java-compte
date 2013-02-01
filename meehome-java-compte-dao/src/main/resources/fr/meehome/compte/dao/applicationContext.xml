@@ -30,7 +30,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>fr.meehome.user.dao.domain.User</value>
+				<value>fr.meehome.compte.dao.domain.User</value>
 				<value>fr.meehome.compte.dao.domain.Compte</value>
 			</list>
 		</property>

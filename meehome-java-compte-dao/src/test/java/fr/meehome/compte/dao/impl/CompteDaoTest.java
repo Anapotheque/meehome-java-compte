@@ -3,7 +3,6 @@ package fr.meehome.compte.dao.impl;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import com.excilys.ebi.spring.dbunit.test.DataSetTestExecutionListener;
 import fr.meehome.compte.dao.ICompteDao;
 import fr.meehome.compte.dao.IUserDao;
 import fr.meehome.compte.dao.domain.Compte;
-import fr.meehome.compte.dao.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/fr/meehome/compte/dao/applicationContext-test.xml" })
@@ -33,55 +31,33 @@ public class CompteDaoTest extends AbstractTransactionalJUnit4SpringContextTests
     @Autowired
     private IUserDao userDao;
 
-    @Before
-    public void init() {
-        List<User> listUsers = userDao.findAll();
-        Assert.assertEquals(true, listUsers != null && !listUsers.isEmpty() && listUsers.size() == 2);
-
-        Compte livretA = new Compte();
-        livretA.setLibelle("Livret A");
-        livretA.setUser(listUsers.get(0));
-
-        compteDao.save(livretA);
-        Assert.assertEquals(1, compteDao.findAll().size());
-
-        Compte ldd = new Compte();
-        ldd.setLibelle("LDD");
-        ldd.setUser(listUsers.get(1));
-
-        compteDao.save(ldd);
-        Assert.assertEquals(2, compteDao.findAll().size());
-    }
-
     @Test
     public void should_return_one_compte_by_user() {
-        List<User> listUsers = userDao.findAll();
-        Assert.assertEquals(true, listUsers != null && !listUsers.isEmpty() && listUsers.size() == 2);
-        List<Compte> listComptes = compteDao.findByUser(listUsers.get(0));
+        List<Compte> listComptes = compteDao.findByUser(userDao.findByLogin("login1").get(0));
         Assert.assertEquals(1, listComptes.size());
-        Assert.assertEquals("Livret A", listComptes.get(0).getLibelle());
+        Assert.assertEquals("LivretA", listComptes.get(0).getLibelle());
     }
 
     @Test
     public void should_return_one_compte_by_libelle() {
-        List<Compte> listComptes = compteDao.findByLibelle("Livret A");
+        List<Compte> listComptes = compteDao.findByLibelle("LivretA");
         Assert.assertEquals(1, listComptes.size());
-        Assert.assertEquals("Livret A", listComptes.get(0).getLibelle());
+        Assert.assertEquals("LivretA", listComptes.get(0).getLibelle());
     }
 
     @Test
     public void should_update_one_compte_by_libelle() {
-        List<Compte> listComptes = compteDao.findByLibelle("Livret A");
-        listComptes.get(0).setLibelle("Livret B");
+        List<Compte> listComptes = compteDao.findByLibelle("LivretA");
+        listComptes.get(0).setLibelle("LivretB");
         compteDao.save(listComptes.get(0));
-        listComptes = compteDao.findByLibelle("Livret B");
+        listComptes = compteDao.findByLibelle("LivretB");
         Assert.assertEquals(1, listComptes.size());
-        Assert.assertEquals("Livret B", listComptes.get(0).getLibelle());
+        Assert.assertEquals("LivretB", listComptes.get(0).getLibelle());
     }
 
     @Test
     public void should_delete_one_compte_by_libelle() {
-        compteDao.remove(compteDao.findByLibelle("Livret A").get(0));
+        compteDao.remove(compteDao.findByLibelle("LivretA").get(0));
         Assert.assertEquals(1, compteDao.findAll().size());
     }
 

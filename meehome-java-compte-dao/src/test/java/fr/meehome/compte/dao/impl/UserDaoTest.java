@@ -20,7 +20,7 @@ import fr.meehome.compte.dao.domain.RoleEnum;
 import fr.meehome.compte.dao.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/fr/meehome/user/dao/applicationContext-test.xml" })
+@ContextConfiguration(locations = {"/fr/meehome/compte/dao/applicationContext-test.xml" })
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DataSetTestExecutionListener.class })
 @DataSet(value = "UserDao.xml")
 public class UserDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
