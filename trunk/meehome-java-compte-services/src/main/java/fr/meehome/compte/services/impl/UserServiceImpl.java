@@ -25,9 +25,9 @@ public class UserServiceImpl implements IUserService {
     @Qualifier("dozerBeanMapper")
     private Mapper mapper;
 
-    private List<UserDto> populateUserDto(List<User> listUser) {
+    private List<UserDto> populate(List<User> list) {
         List<UserDto> listUserDto = new ArrayList<UserDto>();
-        for (User user : listUser) {
+        for (User user : list) {
             listUserDto.add(mapper.map(user, UserDto.class));
         }
         return listUserDto;
@@ -35,17 +35,17 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<UserDto> getAll() {
-        return populateUserDto(userDao.findAll());
+        return populate(userDao.findAll());
     }
 
     @Override
     public List<UserDto> getUserByLogin(String login) {
-        return populateUserDto(userDao.findByLogin(login));
+        return populate(userDao.findByLogin(login));
     }
 
     @Override
     public boolean isAuthorized(String login, String password) {
-        List<UserDto> listUserDto = populateUserDto(userDao.findByLoginAndPwd(login, password));
+        List<UserDto> listUserDto = populate(userDao.findByLoginAndPwd(login, password));
         return listUserDto != null && listUserDto.size() == 1 ? true : false;
     }
 
