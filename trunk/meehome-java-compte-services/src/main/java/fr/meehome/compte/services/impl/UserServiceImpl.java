@@ -14,7 +14,7 @@ import fr.meehome.compte.dao.domain.User;
 import fr.meehome.compte.services.IUserService;
 import fr.meehome.compte.services.dto.UserDto;
 
-@Service(value = "IUserService")
+@Service
 @Transactional
 public class UserServiceImpl implements IUserService {
 
