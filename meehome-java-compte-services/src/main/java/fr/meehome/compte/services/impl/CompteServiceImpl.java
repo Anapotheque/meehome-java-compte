@@ -14,7 +14,7 @@ import fr.meehome.compte.dao.domain.Compte;
 import fr.meehome.compte.services.ICompteService;
 import fr.meehome.compte.services.dto.CompteDto;
 
-@Service(value = "ICompteService")
+@Service
 @Transactional
 public class CompteServiceImpl implements ICompteService {
 
@@ -59,7 +59,9 @@ public class CompteServiceImpl implements ICompteService {
 
     @Override
     public boolean add(List<CompteDto> list) {
-        // TODO Auto-generated method stub
+        for (CompteDto compteDto : list) {
+            compteDao.save(mapper.map(compteDto, Compte.class));
+        }
         return false;
     }
 
