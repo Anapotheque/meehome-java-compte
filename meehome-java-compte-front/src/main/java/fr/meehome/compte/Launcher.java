@@ -3,12 +3,14 @@ package fr.meehome.compte;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.meehome.compte.services.ICompteService;
+import fr.meehome.compte.services.IUserService;
 import fr.meehome.compte.services.dto.CompteDto;
 
 public class Launcher {
@@ -19,10 +21,13 @@ public class Launcher {
 
     public static ICompteService compteService;
 
+    public static IUserService userService;
+
     public static void init() {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         applicationContext = new ClassPathXmlApplicationContext("fr/meehome/compte/services/applicationContext.xml");
-        compteService = (ICompteService ) applicationContext.getBean("ICompteService");
+        userService = (IUserService ) applicationContext.getBean("userServiceImpl");
+        compteService = (ICompteService ) applicationContext.getBean("compteServiceImpl");
     }
 
     public static void main(String[] args) {
@@ -40,6 +45,9 @@ public class Launcher {
                 switch (showAccueil()) {
                     case 1:
                         showListeCompte();
+                        break;
+                    case 2:
+                        nouveauCompte();
                         break;
                     case 'Q':
                         run = false;
@@ -73,6 +81,7 @@ public class Launcher {
     private static int showAccueil() throws NumberFormatException, IOException {
         System.out.println("---------------------------------");
         System.out.println("1 - Liste des comptes");
+        System.out.println("2 - Nouveau compte");
         System.out.println("Q - Quitter");
         System.out.println("---------------------------------");
         return Integer.parseInt(bufferedReader.readLine());
@@ -80,7 +89,7 @@ public class Launcher {
 
     private static void showListeCompte() {
         System.out.println("---------------------------------");
-        System.out.println("- Liste des commte        -");
+        System.out.println("- Liste des comptes        -");
         System.out.println("---------------------------------");
         List<CompteDto> listCompteDto = compteService.getAll();
         if (listCompteDto.isEmpty()) {
@@ -90,6 +99,20 @@ public class Launcher {
                 System.out.println(compteDto.getLibelle());
             }
         }
+    }
+
+    private static void nouveauCompte() throws NumberFormatException, IOException {
+        System.out.println("---------------------------------");
+        System.out.println("- Nouveau compte        -");
+        System.out.println("---------------------------------");
+        System.out.println("- Nom du compte : ");
+        String name = bufferedReader.readLine();
+
+        List<CompteDto> listCompteDto = new ArrayList<CompteDto>();
+        CompteDto compteDto = new CompteDto();
+        compteDto.setLibelle(name);
+        listCompteDto.add(compteDto);
+        compteService.add(listCompteDto);
     }
 
     private static void printError() {
