@@ -104,4 +104,12 @@ public class User {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
+    public RoleEnum getRoleEnum() {
+        return roleEnum;
+    }
+
+    public void setRoleEnum(RoleEnum roleEnum) {
+        this.roleEnum = roleEnum;
+    }
 }
